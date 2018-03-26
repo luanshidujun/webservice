@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>新联电能云APP下载</title>
+
+	<script src="../static/jquery/jquery.min.js"></script>
+</head>
+
+<body style="margin:0; background:#3CB0EC; text-align:center">
+	<div style="background:url(img/h5_bg.png)  no-repeat top center">
+		<p>
+			<img src="img/h5_title.png" width="100%" />
+			<br />
+			<img src="img/h5_down.png"  onclick="javascript:down()"/>
+		</p>
+		<br />
+		<br />
+	</div>
+
+	<div style="background:#FFFFFF;" >
+		<br/>
+		<div style="padding:10px 10px 10px 10px; color:#999999; margin:auto; text-align:left;font-size:13px;line-height:24px;font-family:微软雅黑;">
+			&nbsp;&nbsp;&nbsp;&nbsp;新联电能云平台为客户提供能源综合服务，用户可以通过该平台进行信息查看、告警获取、远程控制、插件下载以及论坛互动。目前该平台具备配用电监测和空调监控两大功能插件：
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;1. 配用电监测插件:用户可以通过配用电监测插件实时了解您的用电信息，及时获取设备的告警信息，为您的安全、经济、高效用电提供更有效的保障。
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;2. 空调监控插件:用户可以通过APP远程控制中央空调状态，查询当前空调运行状态以及空调运行方案、记录、效果分析，通过对中央空调系统部分设备的智能化精细控制，在不影响设备安全运行的情况下，快速有效地调整中央空调总负荷水平。
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;平台将不断推出分体空调监控、用电分析、园区抄表等更多插件更新。
+		</div>
+	</div>
+
+	<div style="background:#FFFFFF; margin:0px; color:#999999; width:100%;text-align: center;font-size:13px;  line-height:24px;font-family:微软雅黑;" >
+		<br />
+		Copyright (c) 2011-2021 南京新联电子股份有限公司
+		<br />
+		XLDZ CORPORATION All Rights Reserved
+		<br />
+		苏ICP备15005556号 
+	</div>
+
+	<script type="text/javascript">
+		var browser={
+			versions:function(){
+				var u = navigator.userAgent,
+				app = navigator.appVersion;
+				return {//移动终端浏览器版本信息
+					trident: u.indexOf('Trident') > -1, //IE内核
+					presto: u.indexOf('Presto') > -1, //opera内核
+					webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+					gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+					mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+					ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+					android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+					iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+					iPad: u.indexOf('iPad') > -1, //是否iPad
+					webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+					wxAPP: u.indexOf('MicroMessenger') > -1  //是否为微信浏览器
+				};
+			}(),
+			language:(navigator.browserLanguage || navigator.language).toLowerCase()
+		}
+		//document.writeln("语言版本: "+browser.language);
+		//document.writeln(" 是否为移动终端: "+browser.versions.mobile);
+		//document.writeln(" ios终端: "+browser.versions.ios);
+		//document.writeln(" android终端: "+browser.versions.android);
+		//document.writeln(" 是否为iPhone: "+browser.versions.iPhone);
+		//document.writeln(" 是否iPad: "+browser.versions.iPad);
+		//document.writeln(" 是否微信: "+browser.versions.wxAPP);
+		//document.writeln(navigator.userAgent);
+		function down(){
+			var type,downloadFrom,downloadUrl;
+			if(browser.versions.wxAPP){
+				type=2;
+				downloadFrom=3;
+				downloadUrl="http://a.app.qq.com/o/simple.jsp?pkgname=com.xldz.www.electriccloudapp";
+			}
+			else
+			{
+				if(browser.versions.ios){
+					type=1;
+					downloadFrom=1;
+					downloadUrl="https://itunes.apple.com/us/app/xin-lian-dian-neng-yun/id1097006879?mt=8";
+				}
+				else{
+					type=2;
+					downloadFrom=2;
+					downloadUrl="http://www.chinadny.com:9010/front/userfiles/1/files/app/2017/12/xldny_3_2_0(4).apk";
+				}
+			}
+
+			$.ajax({
+				url: '../f/wechat/app/downloadApp',
+				dataType: "json",
+				data: {appId:0,appType:0,type:type,downloadFrom:downloadFrom,downloadUrl:downloadUrl},
+				type: 'post',
+				success: function (e) {//成功后回调
+				}
+			});
+
+			window.location.href=downloadUrl;
+		}
+	</script>
+</body>
+</html>
