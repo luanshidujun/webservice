@@ -1,0 +1,7 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Feb 06 10:59:38 CST 2018
+commons-dbcp-1.4-sources.jar>jeesite-repos=
+commons-dbcp-1.4.jar>jeesite-repos=
+commons-dbcp-1.4.jar>=
+commons-dbcp-1.4.pom>central=
+commons-dbcp-1.4.pom>jeesite-repos=

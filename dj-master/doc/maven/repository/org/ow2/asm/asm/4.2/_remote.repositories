@@ -1,0 +1,7 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Feb 06 10:59:32 CST 2018
+asm-4.2.pom>central=
+asm-4.2.jar>jeesite-repos=
+asm-4.2-sources.jar>jeesite-repos=
+asm-4.2.pom>jeesite-repos=
+asm-4.2.jar>=

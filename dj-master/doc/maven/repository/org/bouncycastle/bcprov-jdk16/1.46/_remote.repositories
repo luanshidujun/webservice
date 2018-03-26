@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Feb 06 13:46:10 CST 2018
+bcprov-jdk16-1.46.jar>=
+bcprov-jdk16-1.46-sources.jar>jeesite-repos=
+bcprov-jdk16-1.46.pom>jeesite-repos=
+bcprov-jdk16-1.46.jar>jeesite-repos=
